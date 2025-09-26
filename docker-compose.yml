@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  travelsmart-api:
+    build: .
+    container_name: travelsmart-api
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - WEATHER_API_KEY=${WEATHER_API_KEY}
+      - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
+      - DEBUG=false
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    restart: unless-stopped
+    depends_on:
+      - weather-server
+      - insights-server
+      - booking-server
+
+  weather-server:
+    build: .
+    container_name: travelsmart-weather
+    ports:
+      - "3001:3001"
+    environment:
+      - WEATHER_API_KEY=${WEATHER_API_KEY}
+    command: ["poetry", "run", "python", "-m", "travelsmart.mcp_servers.weather_server"]
+    restart: unless-stopped
+
+  insights-server:
+    build: .
+    container_name: travelsmart-insights
+    ports:
+      - "3002:3002"
+    environment:
+      - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
+    command: ["poetry", "run", "python", "-m", "travelsmart.mcp_servers.travel_insights_server"]
+    restart: unless-stopped
+
+  booking-server:
+    build: .
+    container_name: travelsmart-booking
+    ports:
+      - "3003:3003"
+    environment:
+      - AMADEUS_API_KEY=${AMADEUS_API_KEY}
+      - AMADEUS_API_SECRET=${AMADEUS_API_SECRET}
+    command: ["poetry", "run", "python", "-m", "travelsmart.mcp_servers.booking_server"]
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: travelsmart-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+volumes:
+  logs:
+  data:
