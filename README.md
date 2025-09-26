@@ -275,4 +275,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Support
 
-For support, please open an issue on GitHub or contact team@travelsmart.ai
+For support, please open an issue on GitHub or reach out via the repository discussions.
