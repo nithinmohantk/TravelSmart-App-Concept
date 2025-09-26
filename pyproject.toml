@@ -2,7 +2,7 @@
 name = "travelsmart"
 version = "1.0.0"
 description = "AI-powered travel booking with OpenAI GPT and MCP servers"
-authors = ["TravelSmart Team <team@travelsmart.ai>"]
+authors = ["Nithin Mohan T K <nithinmohantk@github.com>"]
 readme = "README.md"
 packages = [{include = "travelsmart", from = "src"}]
 
