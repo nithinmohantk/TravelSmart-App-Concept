@@ -1,4 +1,4 @@
-# TravelSmart 🌍✈️
+# TravelSmart  - App - Idea Concept🌍✈️
 
 An AI-powered travel booking application that combines OpenAI GPT with Model Context Protocol (MCP) servers to provide intelligent travel planning, weather insights, and booking capabilities.
 
