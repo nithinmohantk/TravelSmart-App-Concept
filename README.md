@@ -104,7 +104,7 @@ graph TB
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/TravelSmart.git
+git clone https://github.com/nithinmohantk/TravelSmart-App-Concept.git
 cd TravelSmart
 ```
 
