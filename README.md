@@ -178,8 +178,8 @@ curl -X POST "http://localhost:8000/plan-trip" \
   -d '{
     "destination": "Paris",
     "departure_city": "New York", 
-    "start_date": "2024-06-15",
-    "end_date": "2024-06-22",
+    "start_date": "2026-06-15",
+    "end_date": "2026-06-22",
     "budget": 2000,
     "travel_type": "leisure",
     "party_size": 2
