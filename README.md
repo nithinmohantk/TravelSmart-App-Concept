@@ -148,8 +148,8 @@ Plan a trip:
 poetry run travelsmart plan \
   --destination "Paris" \
   --departure "New York" \
-  --start-date "2024-06-15" \
-  --end-date "2024-06-22" \
+  --start-date "2026-06-15" \
+  --end-date "2026-06-22" \
   --budget 2000 \
   --travel-type leisure \
   --party-size 2
